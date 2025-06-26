@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Launch Control Panel</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 100px;
+    }
+    #launchBtn {
+      background-color: red;
+      color: white;
+      padding: 20px 40px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    #console {
+      margin-top: 40px;
+      text-align: left;
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #111;
+      padding: 20px;
+      border: 2px solid lime;
+      height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚠️ Nuclear Launch Control Panel ⚠️</h1>
+  <button id="launchBtn">Insert Launch Key</button>
+
+  <div id="console"></div>
+
+  <script>
+    const consoleDiv = document.getElementById("console");
+    const launchBtn = document.getElementById("launchBtn");
+
+    const messages = [
+      "🔑 Launch key inserted...",
+      "🔒 Authenticating...",
+      "✅ Access granted.",
+      "🛰️ Target coordinates locked.",
+      "💣 Arming warheads...",
+      "🚀 Launch sequence initiated...",
+      "3...",
+      "2...",
+      "1...",
+      "🚀 Fake missile launched! 💥 (Don't worry, it's all fake!)"
+    ];
+
+    launchBtn.addEventListener("click", () => {
+      consoleDiv.innerHTML = "";
+      messages.forEach((msg, i) => {
+        setTimeout(() => {
+          consoleDiv.innerHTML += msg + "<br>";
+          consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }, i * 1000);
+      });
+    });
+  </script>
+
+</body>
+</html>
